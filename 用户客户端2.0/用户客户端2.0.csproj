@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36BDF2CD-694B-4036-A4B2-4AD678B0D0A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>用户客户端给2._0</RootNamespace>
+    <AssemblyName>用户客户端给2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="supermarketDataSet.cs">
+      <DependentUpon>supermarketDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="supermarketDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>supermarketDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="supermarketDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>supermarketDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="supermarketDataSet2.cs">
+      <DependentUpon>supermarketDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="supermarketDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>supermarketDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="挑选商品.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="挑选商品.Designer.cs">
+      <DependentUpon>挑选商品.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="登录.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="登录.Designer.cs">
+      <DependentUpon>登录.cs</DependentUpon>
+    </Compile>
+    <Compile Include="购物车.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="购物车.Designer.cs">
+      <DependentUpon>购物车.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="挑选商品.resx">
+      <DependentUpon>挑选商品.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="登录.resx">
+      <DependentUpon>登录.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="购物车.resx">
+      <DependentUpon>购物车.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="supermarketDataSet.xsc">
+      <DependentUpon>supermarketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="supermarketDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>supermarketDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="supermarketDataSet.xss">
+      <DependentUpon>supermarketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="supermarketDataSet1.xsc">
+      <DependentUpon>supermarketDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="supermarketDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>supermarketDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="supermarketDataSet1.xss">
+      <DependentUpon>supermarketDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="supermarketDataSet2.xsc">
+      <DependentUpon>supermarketDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="supermarketDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>supermarketDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="supermarketDataSet2.xss">
+      <DependentUpon>supermarketDataSet2.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

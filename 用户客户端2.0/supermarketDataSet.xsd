@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="supermarketDataSet" targetNamespace="http://tempuri.org/supermarketDataSet.xsd" xmlns:mstns="http://tempuri.org/supermarketDataSet.xsd" xmlns="http://tempuri.org/supermarketDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="supermarketConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="supermarketConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.用户客户端给2._0.Properties.Settings.GlobalReference.Default.supermarketConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Selection of goodsTableAdapter" GeneratorDataComponentClassName="Selection_of_goodsTableAdapter" Name="Selection of goods" UserDataComponentName="Selection of goodsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="supermarketConnectionString (Settings)" DbObjectName="supermarket.dbo.[Selection of goods]" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT  itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, production, gettime, sort_name
+FROM      [Selection of goods]
+WHERE   (sort_name = '"+combobox1.text+"')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="itemnumber" DataSetColumn="itemnumber" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="cost" DataSetColumn="cost" />
+              <Mapping SourceColumn="sell" DataSetColumn="sell" />
+              <Mapping SourceColumn="stocknumber" DataSetColumn="stocknumber" />
+              <Mapping SourceColumn="sort_number" DataSetColumn="sort_number" />
+              <Mapping SourceColumn="expiration_date" DataSetColumn="expiration_date" />
+              <Mapping SourceColumn="production" DataSetColumn="production" />
+              <Mapping SourceColumn="gettime" DataSetColumn="gettime" />
+              <Mapping SourceColumn="sort_name" DataSetColumn="sort_name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="supermarketDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="supermarketDataSet" msprop:Generator_UserDSName="supermarketDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Selection_x0020_of_x0020_goods" msprop:Generator_TableClassName="Selection_of_goodsDataTable" msprop:Generator_TableVarName="tableSelection_of_goods" msprop:Generator_RowChangedName="Selection_of_goodsRowChanged" msprop:Generator_TablePropName="Selection_of_goods" msprop:Generator_RowDeletingName="Selection_of_goodsRowDeleting" msprop:Generator_RowChangingName="Selection_of_goodsRowChanging" msprop:Generator_RowEvHandlerName="Selection_of_goodsRowChangeEventHandler" msprop:Generator_RowDeletedName="Selection_of_goodsRowDeleted" msprop:Generator_RowClassName="Selection_of_goodsRow" msprop:Generator_UserTableName="Selection of goods" msprop:Generator_RowEvArgName="Selection_of_goodsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="itemnumber" msprop:Generator_ColumnVarNameInTable="columnitemnumber" msprop:Generator_ColumnPropNameInRow="itemnumber" msprop:Generator_ColumnPropNameInTable="itemnumberColumn" msprop:Generator_UserColumnName="itemnumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:double" />
+              <xs:element name="sell" msprop:Generator_ColumnVarNameInTable="columnsell" msprop:Generator_ColumnPropNameInRow="sell" msprop:Generator_ColumnPropNameInTable="sellColumn" msprop:Generator_UserColumnName="sell" type="xs:double" />
+              <xs:element name="stocknumber" msprop:Generator_ColumnVarNameInTable="columnstocknumber" msprop:Generator_ColumnPropNameInRow="stocknumber" msprop:Generator_ColumnPropNameInTable="stocknumberColumn" msprop:Generator_UserColumnName="stocknumber" type="xs:int" />
+              <xs:element name="sort_number" msprop:Generator_ColumnVarNameInTable="columnsort_number" msprop:Generator_ColumnPropNameInRow="sort_number" msprop:Generator_ColumnPropNameInTable="sort_numberColumn" msprop:Generator_UserColumnName="sort_number">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expiration_date" msprop:Generator_ColumnVarNameInTable="columnexpiration_date" msprop:Generator_ColumnPropNameInRow="expiration_date" msprop:Generator_ColumnPropNameInTable="expiration_dateColumn" msprop:Generator_UserColumnName="expiration_date" type="xs:dateTime" />
+              <xs:element name="production" msprop:Generator_ColumnVarNameInTable="columnproduction" msprop:Generator_ColumnPropNameInRow="production" msprop:Generator_ColumnPropNameInTable="productionColumn" msprop:Generator_UserColumnName="production" type="xs:dateTime" />
+              <xs:element name="gettime" msprop:Generator_ColumnVarNameInTable="columngettime" msprop:Generator_ColumnPropNameInRow="gettime" msprop:Generator_ColumnPropNameInTable="gettimeColumn" msprop:Generator_UserColumnName="gettime" type="xs:dateTime" />
+              <xs:element name="sort_name" msprop:Generator_ColumnVarNameInTable="columnsort_name" msprop:Generator_ColumnPropNameInRow="sort_name" msprop:Generator_ColumnPropNameInTable="sort_nameColumn" msprop:Generator_UserColumnName="sort_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Selection_x0020_of_x0020_goods" />
+      <xs:field xpath="mstns:itemnumber" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,13 @@
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\bin\Debug\用户客户端2.2.exe.config
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\bin\Debug\用户客户端2.2.exe
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\bin\Debug\用户客户端2.2.pdb
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.csprojAssemblyReference.cache
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.Properties.Resources.resources
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.选购商品.resources
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.csproj.GenerateResource.cache
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.csproj.CoreCompileInputs.cache
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.exe
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.pdb
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.登录.resources
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.购物车.resources
+C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.确认订单.resources
