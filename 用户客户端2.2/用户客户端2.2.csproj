@@ -95,6 +95,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="支付.resx">
+      <DependentUpon>支付.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="登录.resx">
       <DependentUpon>登录.cs</DependentUpon>
     </EmbeddedResource>

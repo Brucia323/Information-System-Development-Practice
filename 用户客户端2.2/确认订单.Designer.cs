@@ -50,11 +50,11 @@ namespace 用户客户端2._2
             this.cart_1TableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.cart_1TableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supermarketDataSet)).BeginInit();
@@ -237,6 +237,7 @@ namespace 用户客户端2._2
             this.button1.TabIndex = 2;
             this.button1.Text = "去支付";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -255,22 +256,22 @@ namespace 用户客户端2._2
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "订单信息";
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "订单号";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(198, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "元";
             // 
-            // textBox1
+            // textBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 1;
+            this.textBox2.Location = new System.Drawing.Point(92, 122);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(100, 25);
+            this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
@@ -281,22 +282,22 @@ namespace 用户客户端2._2
             this.label2.TabIndex = 2;
             this.label2.Text = "金额";
             // 
-            // textBox2
+            // textBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(92, 122);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 25);
-            this.textBox2.TabIndex = 3;
+            this.textBox1.Location = new System.Drawing.Point(92, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.TabIndex = 1;
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(198, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "元";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "订单号";
             // 
             // 确认订单
             // 

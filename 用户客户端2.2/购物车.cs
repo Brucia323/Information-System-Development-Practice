@@ -32,7 +32,7 @@ namespace 用户客户端2._2
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "cstateDataGridViewTextBoxColumn")
             {
-                if (dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString() == "T")
+                if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString() == "T")
                 {
                     String updateCommand = "update cart set c_state='F' where (tel = '" + 登录.tel + "' and itemnumber = '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "')";
                     sqlConnection = new SqlConnection(connectionString);
@@ -48,7 +48,7 @@ namespace 用户客户端2._2
                         throw;
                     }
                 }
-                if (dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString() == "F")
+                if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString() == "F")
                 {
                     String updateCommand = "update cart set c_state='T' where (tel = '" + 登录.tel + "' and itemnumber = '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "')";
                     sqlConnection = new SqlConnection(connectionString);
@@ -84,7 +84,6 @@ namespace 用户客户端2._2
             }
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Column2")
             {
-                //MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                 String updateCommand = "update cart set quantity = quantity + 1 where (tel = '" + 登录.tel + "' and itemnumber = '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "')";
                 sqlConnection = new SqlConnection(connectionString);
                 SqlCommand sqlCommand = new SqlCommand(updateCommand, sqlConnection);

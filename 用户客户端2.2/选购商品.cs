@@ -41,7 +41,7 @@ namespace 用户客户端2._2
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Column1")
             {
-                String updateCommand = "insert into cart values ('" + 登录.tel + "','" + dataGridView1[e.RowIndex, 0].Value + "','1','T'," + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ")";
+                String updateCommand = "insert into cart values ('" + 登录.tel + "','" + dataGridView1.Rows[e.RowIndex].Cells[0].Value + "','1','T'," + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ")";
                 sqlConnection = new SqlConnection(connectionString);
                 SqlCommand sqlCommand = new SqlCommand(updateCommand, sqlConnection);
                 try
