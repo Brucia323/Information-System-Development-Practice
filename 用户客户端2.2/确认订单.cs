@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace 用户客户端2._2
@@ -10,9 +9,7 @@ namespace 用户客户端2._2
         private string address = "";
         private string usetel = "";
         private string orderNumber;
-        private readonly string connectionString = "Data Source=.;Initial Catalog=supermarket;Integrated Security=True";
-        private SqlConnection sqlConnection;
-        public static string amount;
+        public static double amount;
         public 确认订单()
         {
             InitializeComponent();
@@ -30,45 +27,16 @@ namespace 用户客户端2._2
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-            string selectText = "select SUM(sell*quantity) from commodity,cart where commodity.itemnumber=cart.itemnumber and tel='" + 登录.tel + "' and c_state='T'";
-            sqlConnection = new SqlConnection(connectionString);
-            SqlCommand sqlCommand = new SqlCommand(selectText, sqlConnection);
             try
             {
-                sqlConnection.Open();
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                while (sqlDataReader.Read())
-                {
-                    amount = sqlDataReader[0].ToString();
-                }
-                textBox2.Text = amount;
-                sqlDataReader.Close();
-                sqlConnection.Close();
+                amount = (double)cart_1TableAdapter.ScalarQuery(登录.tel);
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("购物车中没有商品可以结算");
             }
-
-            string selectOrdernumber = "select count(*) from book";
-            sqlCommand.CommandText = selectOrdernumber;
-            try
-            {
-                sqlConnection.Open();
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                while (sqlDataReader.Read())
-                {
-                    orderNumber = sqlDataReader[0].ToString();
-                }
-                sqlDataReader.Close();
-                sqlConnection.Close();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            textBox2.Text = amount.ToString();
+            orderNumber = bookTableAdapter1.ScalarQuery().ToString();
             orderNumber = 10000 + orderNumber;
             textBox1.Text = orderNumber;
             try
@@ -76,14 +44,24 @@ namespace 用户客户端2._2
                 name = dataGridView1.Rows[0].Cells[1].Value.ToString();
                 address = dataGridView1.Rows[0].Cells[2].Value.ToString();
                 usetel = dataGridView1.Rows[0].Cells[3].Value.ToString();
-
             }
             catch (Exception)
             {
-
-                //throw;
+                MessageBox.Show("请添加地址");
+                //调用添加地址的页面
+                try
+                {
+                    // TODO: 这行代码将数据加载到表“supermarketDataSet.addres”中。您可以根据需要移动或删除它。
+                    addresTableAdapter.Fill(supermarketDataSet.addres, 登录.tel);
+                    name = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                    address = dataGridView1.Rows[0].Cells[2].Value.ToString();
+                    usetel = dataGridView1.Rows[0].Cells[3].Value.ToString();
+                }
+                catch (Exception)
+                {
+                    Close();
+                }
             }
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -93,31 +71,14 @@ namespace 用户客户端2._2
             usetel = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
-        private void dataGridView1_Leave(object sender, EventArgs e)
-        {
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            string insertText = "insert into book(ordernamber,b_state,payment,tel,usetel,adr,bookTime,payTime) values('" + orderNumber.ToString() + "','已支付','" + amount.ToString() + "','" + 登录.tel + "','" + usetel + "','" + address + "','" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "','" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "')";
-            SqlCommand sqlCommand = new SqlCommand(insertText, sqlConnection);
-            try
+            bookTableAdapter1.InsertQuery(orderNumber, (int)amount, 登录.tel, usetel, address, DateTime.Now, DateTime.Now);
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
-                sqlConnection.Open();
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
+                orderproductsTableAdapter1.InsertQuery(orderNumber, (int)dataGridView2.Rows[i].Cells[1].Value, (int)dataGridView2.Rows[i].Cells[3].Value, (DateTime)dataGridView2.Rows[i].Cells[7].Value);
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
+            usersTableAdapter1.UpdateQuery(Convert.ToInt32(amount), 登录.tel);
             支付 pay = new 支付();
             pay.ShowDialog();
             选购商品.flag = true;

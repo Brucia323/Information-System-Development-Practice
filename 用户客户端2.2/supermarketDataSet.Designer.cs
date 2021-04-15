@@ -1336,6 +1336,8 @@ namespace 用户客户端2._2 {
             
             private global::System.Data.DataColumn columnjointime;
             
+            private global::System.Data.DataColumn columnproduction;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public cartDataTable() {
@@ -1411,6 +1413,14 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn productionColumn {
+                get {
+                    return this.columnproduction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1446,17 +1456,27 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public cartRow AddcartRow(string tel, string itemnumber, int quantity, string c_state, System.DateTime jointime) {
+            public cartRow AddcartRow(string tel, string itemnumber, int quantity, string c_state, System.DateTime jointime, System.DateTime production) {
                 cartRow rowcartRow = ((cartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         tel,
                         itemnumber,
                         quantity,
                         c_state,
-                        jointime};
+                        jointime,
+                        production};
                 rowcartRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcartRow);
                 return rowcartRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public cartRow FindBytelitemnumberproduction(string tel, string itemnumber, System.DateTime production) {
+                return ((cartRow)(this.Rows.Find(new object[] {
+                            tel,
+                            itemnumber,
+                            production})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1481,6 +1501,7 @@ namespace 用户客户端2._2 {
                 this.columnquantity = base.Columns["quantity"];
                 this.columnc_state = base.Columns["c_state"];
                 this.columnjointime = base.Columns["jointime"];
+                this.columnproduction = base.Columns["production"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1496,9 +1517,15 @@ namespace 用户客户端2._2 {
                 base.Columns.Add(this.columnc_state);
                 this.columnjointime = new global::System.Data.DataColumn("jointime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjointime);
+                this.columnproduction = new global::System.Data.DataColumn("production", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproduction);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columntel,
                                 this.columnitemnumber}, false));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
+                                this.columntel,
+                                this.columnitemnumber,
+                                this.columnproduction}, true));
                 this.columntel.AllowDBNull = false;
                 this.columntel.MaxLength = 11;
                 this.columnitemnumber.AllowDBNull = false;
@@ -1507,6 +1534,7 @@ namespace 用户客户端2._2 {
                 this.columnc_state.AllowDBNull = false;
                 this.columnc_state.MaxLength = 1;
                 this.columnjointime.AllowDBNull = false;
+                this.columnproduction.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1644,19 +1672,9 @@ namespace 用户客户端2._2 {
             
             private global::System.Data.DataColumn columnname;
             
-            private global::System.Data.DataColumn columncost;
-            
-            private global::System.Data.DataColumn columnsell;
-            
-            private global::System.Data.DataColumn columnstocknumber;
-            
             private global::System.Data.DataColumn columnsort_number;
             
-            private global::System.Data.DataColumn columnexpiration_date;
-            
-            private global::System.Data.DataColumn columnproduction;
-            
-            private global::System.Data.DataColumn columngettime;
+            private global::System.Data.DataColumn columnnowPrice;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1709,30 +1727,6 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn costColumn {
-                get {
-                    return this.columncost;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn sellColumn {
-                get {
-                    return this.columnsell;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn stocknumberColumn {
-                get {
-                    return this.columnstocknumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn sort_numberColumn {
                 get {
                     return this.columnsort_number;
@@ -1741,25 +1735,9 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn expiration_dateColumn {
+            public global::System.Data.DataColumn nowPriceColumn {
                 get {
-                    return this.columnexpiration_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn productionColumn {
-                get {
-                    return this.columnproduction;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn gettimeColumn {
-                get {
-                    return this.columngettime;
+                    return this.columnnowPrice;
                 }
             }
             
@@ -1800,28 +1778,16 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public commodityRow AddcommodityRow(string itemnumber, string name, double cost, double sell, int stocknumber, string sort_number, System.DateTime expiration_date, System.DateTime production, System.DateTime gettime) {
+            public commodityRow AddcommodityRow(string itemnumber, string name, string sort_number, double nowPrice) {
                 commodityRow rowcommodityRow = ((commodityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         itemnumber,
                         name,
-                        cost,
-                        sell,
-                        stocknumber,
                         sort_number,
-                        expiration_date,
-                        production,
-                        gettime};
+                        nowPrice};
                 rowcommodityRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcommodityRow);
                 return rowcommodityRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public commodityRow FindByitemnumber(string itemnumber) {
-                return ((commodityRow)(this.Rows.Find(new object[] {
-                            itemnumber})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1843,13 +1809,8 @@ namespace 用户客户端2._2 {
             internal void InitVars() {
                 this.columnitemnumber = base.Columns["itemnumber"];
                 this.columnname = base.Columns["name"];
-                this.columncost = base.Columns["cost"];
-                this.columnsell = base.Columns["sell"];
-                this.columnstocknumber = base.Columns["stocknumber"];
                 this.columnsort_number = base.Columns["sort_number"];
-                this.columnexpiration_date = base.Columns["expiration_date"];
-                this.columnproduction = base.Columns["production"];
-                this.columngettime = base.Columns["gettime"];
+                this.columnnowPrice = base.Columns["nowPrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1859,35 +1820,17 @@ namespace 用户客户端2._2 {
                 base.Columns.Add(this.columnitemnumber);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
-                this.columncost = new global::System.Data.DataColumn("cost", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncost);
-                this.columnsell = new global::System.Data.DataColumn("sell", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsell);
-                this.columnstocknumber = new global::System.Data.DataColumn("stocknumber", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstocknumber);
                 this.columnsort_number = new global::System.Data.DataColumn("sort_number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsort_number);
-                this.columnexpiration_date = new global::System.Data.DataColumn("expiration_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexpiration_date);
-                this.columnproduction = new global::System.Data.DataColumn("production", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnproduction);
-                this.columngettime = new global::System.Data.DataColumn("gettime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columngettime);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnitemnumber}, true));
+                this.columnnowPrice = new global::System.Data.DataColumn("nowPrice", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnowPrice);
                 this.columnitemnumber.AllowDBNull = false;
-                this.columnitemnumber.Unique = true;
                 this.columnitemnumber.MaxLength = 20;
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 10;
-                this.columncost.AllowDBNull = false;
-                this.columnsell.AllowDBNull = false;
-                this.columnstocknumber.AllowDBNull = false;
                 this.columnsort_number.AllowDBNull = false;
                 this.columnsort_number.MaxLength = 20;
-                this.columnexpiration_date.AllowDBNull = false;
-                this.columnproduction.AllowDBNull = false;
-                this.columngettime.AllowDBNull = false;
+                this.columnnowPrice.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2027,6 +1970,8 @@ namespace 用户客户端2._2 {
             
             private global::System.Data.DataColumn columnpurchasequantity;
             
+            private global::System.Data.DataColumn columnproduction;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public orderproductsDataTable() {
@@ -2086,6 +2031,14 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn productionColumn {
+                get {
+                    return this.columnproduction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2121,12 +2074,13 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public orderproductsRow AddorderproductsRow(string ordernumber, int itemnumber, int purchasequantity) {
+            public orderproductsRow AddorderproductsRow(string ordernumber, int itemnumber, int purchasequantity, System.DateTime production) {
                 orderproductsRow roworderproductsRow = ((orderproductsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ordernumber,
                         itemnumber,
-                        purchasequantity};
+                        purchasequantity,
+                        production};
                 roworderproductsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(roworderproductsRow);
                 return roworderproductsRow;
@@ -2134,10 +2088,11 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public orderproductsRow FindByordernumberitemnumber(string ordernumber, int itemnumber) {
+            public orderproductsRow FindByordernumberitemnumberproduction(string ordernumber, int itemnumber, System.DateTime production) {
                 return ((orderproductsRow)(this.Rows.Find(new object[] {
                             ordernumber,
-                            itemnumber})));
+                            itemnumber,
+                            production})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2160,6 +2115,7 @@ namespace 用户客户端2._2 {
                 this.columnordernumber = base.Columns["ordernumber"];
                 this.columnitemnumber = base.Columns["itemnumber"];
                 this.columnpurchasequantity = base.Columns["purchasequantity"];
+                this.columnproduction = base.Columns["production"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2171,13 +2127,17 @@ namespace 用户客户端2._2 {
                 base.Columns.Add(this.columnitemnumber);
                 this.columnpurchasequantity = new global::System.Data.DataColumn("purchasequantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpurchasequantity);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                this.columnproduction = new global::System.Data.DataColumn("production", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproduction);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("orderproductsKey1", new global::System.Data.DataColumn[] {
                                 this.columnordernumber,
-                                this.columnitemnumber}, true));
+                                this.columnitemnumber,
+                                this.columnproduction}, true));
                 this.columnordernumber.AllowDBNull = false;
                 this.columnordernumber.MaxLength = 10;
                 this.columnitemnumber.AllowDBNull = false;
                 this.columnpurchasequantity.AllowDBNull = false;
+                this.columnproduction.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3574,6 +3534,10 @@ namespace 用户客户端2._2 {
             
             private global::System.Data.DataColumn columnsell;
             
+            private global::System.Data.DataColumn columnnowPrice;
+            
+            private global::System.Data.DataColumn columnproduction;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public cart_1DataTable() {
@@ -3665,6 +3629,22 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nowPriceColumn {
+                get {
+                    return this.columnnowPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn productionColumn {
+                get {
+                    return this.columnproduction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3700,7 +3680,7 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public cart_1Row Addcart_1Row(string tel, string itemnumber, int quantity, string c_state, System.DateTime jointime, string name, double sell) {
+            public cart_1Row Addcart_1Row(string tel, string itemnumber, int quantity, string c_state, System.DateTime jointime, string name, double sell, double nowPrice, System.DateTime production) {
                 cart_1Row rowcart_1Row = ((cart_1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         tel,
@@ -3709,7 +3689,9 @@ namespace 用户客户端2._2 {
                         c_state,
                         jointime,
                         name,
-                        sell};
+                        sell,
+                        nowPrice,
+                        production};
                 rowcart_1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcart_1Row);
                 return rowcart_1Row;
@@ -3717,10 +3699,11 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public cart_1Row FindBytelitemnumber(string tel, string itemnumber) {
+            public cart_1Row FindBytelitemnumberproduction(string tel, string itemnumber, System.DateTime production) {
                 return ((cart_1Row)(this.Rows.Find(new object[] {
                             tel,
-                            itemnumber})));
+                            itemnumber,
+                            production})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3747,6 +3730,8 @@ namespace 用户客户端2._2 {
                 this.columnjointime = base.Columns["jointime"];
                 this.columnname = base.Columns["name"];
                 this.columnsell = base.Columns["sell"];
+                this.columnnowPrice = base.Columns["nowPrice"];
+                this.columnproduction = base.Columns["production"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3766,9 +3751,14 @@ namespace 用户客户端2._2 {
                 base.Columns.Add(this.columnname);
                 this.columnsell = new global::System.Data.DataColumn("sell", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsell);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                this.columnnowPrice = new global::System.Data.DataColumn("nowPrice", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnowPrice);
+                this.columnproduction = new global::System.Data.DataColumn("production", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproduction);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("cart_1Key2", new global::System.Data.DataColumn[] {
                                 this.columntel,
-                                this.columnitemnumber}, true));
+                                this.columnitemnumber,
+                                this.columnproduction}, true));
                 this.columntel.AllowDBNull = false;
                 this.columntel.MaxLength = 11;
                 this.columnitemnumber.AllowDBNull = false;
@@ -3780,6 +3770,8 @@ namespace 用户客户端2._2 {
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 10;
                 this.columnsell.AllowDBNull = false;
+                this.columnnowPrice.AllowDBNull = false;
+                this.columnproduction.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4282,6 +4274,17 @@ namespace 用户客户端2._2 {
                     this[this.tablecart.jointimeColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime production {
+                get {
+                    return ((global::System.DateTime)(this[this.tablecart.productionColumn]));
+                }
+                set {
+                    this[this.tablecart.productionColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -4322,39 +4325,6 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double cost {
-                get {
-                    return ((double)(this[this.tablecommodity.costColumn]));
-                }
-                set {
-                    this[this.tablecommodity.costColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double sell {
-                get {
-                    return ((double)(this[this.tablecommodity.sellColumn]));
-                }
-                set {
-                    this[this.tablecommodity.sellColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int stocknumber {
-                get {
-                    return ((int)(this[this.tablecommodity.stocknumberColumn]));
-                }
-                set {
-                    this[this.tablecommodity.stocknumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string sort_number {
                 get {
                     return ((string)(this[this.tablecommodity.sort_numberColumn]));
@@ -4366,34 +4336,12 @@ namespace 用户客户端2._2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime expiration_date {
+            public double nowPrice {
                 get {
-                    return ((global::System.DateTime)(this[this.tablecommodity.expiration_dateColumn]));
+                    return ((double)(this[this.tablecommodity.nowPriceColumn]));
                 }
                 set {
-                    this[this.tablecommodity.expiration_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime production {
-                get {
-                    return ((global::System.DateTime)(this[this.tablecommodity.productionColumn]));
-                }
-                set {
-                    this[this.tablecommodity.productionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime gettime {
-                get {
-                    return ((global::System.DateTime)(this[this.tablecommodity.gettimeColumn]));
-                }
-                set {
-                    this[this.tablecommodity.gettimeColumn] = value;
+                    this[this.tablecommodity.nowPriceColumn] = value;
                 }
             }
         }
@@ -4442,6 +4390,17 @@ namespace 用户客户端2._2 {
                 }
                 set {
                     this[this.tableorderproducts.purchasequantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime production {
+                get {
+                    return ((global::System.DateTime)(this[this.tableorderproducts.productionColumn]));
+                }
+                set {
+                    this[this.tableorderproducts.productionColumn] = value;
                 }
             }
         }
@@ -4843,6 +4802,28 @@ namespace 用户客户端2._2 {
                 }
                 set {
                     this[this.tablecart_1.sellColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double nowPrice {
+                get {
+                    return ((double)(this[this.tablecart_1.nowPriceColumn]));
+                }
+                set {
+                    this[this.tablecart_1.nowPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime production {
+                get {
+                    return ((global::System.DateTime)(this[this.tablecart_1.productionColumn]));
+                }
+                set {
+                    this[this.tablecart_1.productionColumn] = value;
                 }
             }
         }
@@ -5627,12 +5608,29 @@ SELECT ordernamber, b_state, payment, tel, usetel, adr, bookTime, payTime, prepa
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ordernamber, b_state, payment, tel, usetel, adr, bookTime, payTime, prepar" +
                 "eTime, sentTime, overTime, stf FROM dbo.book";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO book\r\n                   (ordernamber, b_state, payment, tel, usetel," +
+                " adr, bookTime, payTime)\r\nVALUES  (@ordernamber, \'已支付\',@payment,@tel,@usetel,@ad" +
+                "r,@bookTime,@payTime); ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ordernamber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "ordernamber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payment", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "payment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tel", global::System.Data.SqlDbType.NChar, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usetel", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "usetel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@adr", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "adr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "bookTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "payTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT COUNT(*) FROM book";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6097,6 +6095,94 @@ SELECT ordernamber, b_state, payment, tel, usetel, adr, bookTime, payTime, prepa
                     global::System.Nullable<int> Original_stf) {
             return this.Update(Original_ordernamber, b_state, payment, tel, usetel, adr, bookTime, payTime, prepareTime, sentTime, overTime, stf, Original_ordernamber, Original_b_state, Original_payment, Original_tel, Original_usetel, Original_adr, Original_bookTime, Original_payTime, Original_prepareTime, Original_sentTime, Original_overTime, Original_stf);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string ordernamber, int payment, string tel, string usetel, string adr, global::System.Nullable<global::System.DateTime> bookTime, global::System.Nullable<global::System.DateTime> payTime) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((ordernamber == null)) {
+                throw new global::System.ArgumentNullException("ordernamber");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(ordernamber));
+            }
+            command.Parameters[1].Value = ((int)(payment));
+            if ((tel == null)) {
+                throw new global::System.ArgumentNullException("tel");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(tel));
+            }
+            if ((usetel == null)) {
+                throw new global::System.ArgumentNullException("usetel");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(usetel));
+            }
+            if ((adr == null)) {
+                throw new global::System.ArgumentNullException("adr");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(adr));
+            }
+            if ((bookTime.HasValue == true)) {
+                command.Parameters[5].Value = ((System.DateTime)(bookTime.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((payTime.HasValue == true)) {
+                command.Parameters[6].Value = ((System.DateTime)(payTime.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ScalarQuery() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
     }
     
     /// <summary>
@@ -6225,6 +6311,7 @@ SELECT ordernamber, b_state, payment, tel, usetel, adr, bookTime, payTime, prepa
             tableMapping.ColumnMappings.Add("quantity", "quantity");
             tableMapping.ColumnMappings.Add("c_state", "c_state");
             tableMapping.ColumnMappings.Add("jointime", "jointime");
+            tableMapping.ColumnMappings.Add("production", "production");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -6276,11 +6363,63 @@ SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT tel, itemnumber, quantity, c_state, jointime FROM dbo.cart";
+            this._commandCollection[0].CommandText = "SELECT  tel, itemnumber, quantity, c_state, jointime, production\r\nFROM      cart";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM cart\r\nWHERE   (tel = @Original_tel) AND (c_state = \'T\')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "DELETE FROM cart\r\nWHERE   (tel = @Original_tel) AND (itemnumber = @Original_itemn" +
+                "umber) AND (production = @Original_production)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_production", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO cart
+                   (tel, itemnumber, quantity, c_state, jointime, production)
+VALUES  (@tel,@itemnumber, 1, 'T',@jointime,@production);  
+SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber = @itemnumber) AND (tel = @tel)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jointime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "jointime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@production", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE  cart\r\nSET           c_state = \'F\'\r\nWHERE   (tel = @Original_tel) AND (ite" +
+                "mnumber = @Original_itemnumber);  \r\n";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE  cart\r\nSET           c_state = \'T\'\r\nWHERE   (tel = @Original_tel) AND (ite" +
+                "mnumber = @Original_itemnumber); \r\n";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "UPDATE  cart\r\nSET           quantity = quantity - 1\r\nWHERE   (tel = @Original_tel" +
+                ") AND (itemnumber = @Original_itemnumber); \r\n";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "UPDATE  cart\r\nSET           quantity = quantity + 1\r\nWHERE   (tel = @Original_tel" +
+                ") AND (itemnumber = @Original_itemnumber); \r\n";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6478,6 +6617,253 @@ SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber 
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int quantity, string c_state, System.DateTime jointime, string Original_tel, string Original_itemnumber, int Original_quantity, string Original_c_state, System.DateTime Original_jointime) {
+            return this.Update(Original_tel, Original_itemnumber, quantity, c_state, jointime, Original_tel, Original_itemnumber, Original_quantity, Original_c_state, Original_jointime);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(string Original_tel) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_tel));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int DeleteQuery1(string Original_tel, string Original_itemnumber, System.DateTime Original_production) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_tel));
+            }
+            if ((Original_itemnumber == null)) {
+                throw new global::System.ArgumentNullException("Original_itemnumber");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_itemnumber));
+            }
+            command.Parameters[2].Value = ((System.DateTime)(Original_production));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int InsertQuery(string tel, string itemnumber, System.DateTime jointime, System.DateTime production) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((tel == null)) {
+                throw new global::System.ArgumentNullException("tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(tel));
+            }
+            if ((itemnumber == null)) {
+                throw new global::System.ArgumentNullException("itemnumber");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(itemnumber));
+            }
+            command.Parameters[2].Value = ((System.DateTime)(jointime));
+            command.Parameters[3].Value = ((System.DateTime)(production));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int UpdateQuery(string Original_tel, string Original_itemnumber) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_tel));
+            }
+            if ((Original_itemnumber == null)) {
+                throw new global::System.ArgumentNullException("Original_itemnumber");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_itemnumber));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery1(string Original_tel, string Original_itemnumber) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_tel));
+            }
+            if ((Original_itemnumber == null)) {
+                throw new global::System.ArgumentNullException("Original_itemnumber");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_itemnumber));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery2(string Original_tel, string Original_itemnumber) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_tel));
+            }
+            if ((Original_itemnumber == null)) {
+                throw new global::System.ArgumentNullException("Original_itemnumber");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_itemnumber));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery3(string Original_tel, string Original_itemnumber) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_tel));
+            }
+            if ((Original_itemnumber == null)) {
+                throw new global::System.ArgumentNullException("Original_itemnumber");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_itemnumber));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -6603,17 +6989,12 @@ SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber 
             tableMapping.DataSetTable = "commodity";
             tableMapping.ColumnMappings.Add("itemnumber", "itemnumber");
             tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("cost", "cost");
-            tableMapping.ColumnMappings.Add("sell", "sell");
-            tableMapping.ColumnMappings.Add("stocknumber", "stocknumber");
             tableMapping.ColumnMappings.Add("sort_number", "sort_number");
-            tableMapping.ColumnMappings.Add("expiration_date", "expiration_date");
-            tableMapping.ColumnMappings.Add("production", "production");
-            tableMapping.ColumnMappings.Add("gettime", "gettime");
+            tableMapping.ColumnMappings.Add("nowPrice", "nowPrice");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [commodity] WHERE (([itemnumber] = @Original_itemnumber) AND ([name] = @Original_name) AND ([cost] = @Original_cost) AND ([sell] = @Original_sell) AND ([stocknumber] = @Original_stocknumber) AND ([sort_number] = @Original_sort_number) AND ([expiration_date] = @Original_expiration_date) AND ([production] = @Original_production) AND ([gettime] = @Original_gettime))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [commodity] WHERE (([itemnumber] = @Original_itemnumber) AND ([name] = @Original_name) AND ([cost] = @Original_cost) AND ([sell] = @Original_sell) AND ([stocknumber] = @Original_stocknumber) AND ([sort_number] = @Original_sort_number) AND ([expiration_date] = @Original_expiration_date) AND ([production] = @Original_production) AND ([gettime] = @Original_gettime) AND ([nowPrice] = @Original_nowPrice))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6624,24 +7005,21 @@ SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_expiration_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiration_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_production", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_gettime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gettime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nowPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nowPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [commodity] ([itemnumber], [name], [cost], [sell], [stocknumber], [sort_number], [expiration_date], [production], [gettime]) VALUES (@itemnumber, @name, @cost, @sell, @stocknumber, @sort_number, @expiration_date, @production, @gettime);
-SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, production, gettime FROM commodity WHERE (itemnumber = @itemnumber)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [commodity] ([itemnumber], [name], [sell], [sort_number], [nowPrice])" +
+                " VALUES (@itemnumber, @name, @sell, @sort_number, @nowPrice)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemnumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cost", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sell", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sell", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stocknumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stocknumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sort_number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sort_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@expiration_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiration_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@production", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gettime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gettime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nowPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [commodity] SET [itemnumber] = @itemnumber, [name] = @name, [cost] = @cost, [sell] = @sell, [stocknumber] = @stocknumber, [sort_number] = @sort_number, [expiration_date] = @expiration_date, [production] = @production, [gettime] = @gettime WHERE (([itemnumber] = @Original_itemnumber) AND ([name] = @Original_name) AND ([cost] = @Original_cost) AND ([sell] = @Original_sell) AND ([stocknumber] = @Original_stocknumber) AND ([sort_number] = @Original_sort_number) AND ([expiration_date] = @Original_expiration_date) AND ([production] = @Original_production) AND ([gettime] = @Original_gettime));
-SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, production, gettime FROM commodity WHERE (itemnumber = @itemnumber)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [commodity] SET [itemnumber] = @itemnumber, [name] = @name, [cost] = @cost, [sell] = @sell, [stocknumber] = @stocknumber, [sort_number] = @sort_number, [expiration_date] = @expiration_date, [production] = @production, [gettime] = @gettime, [nowPrice] = @nowPrice WHERE (([itemnumber] = @Original_itemnumber) AND ([name] = @Original_name) AND ([cost] = @Original_cost) AND ([sell] = @Original_sell) AND ([stocknumber] = @Original_stocknumber) AND ([sort_number] = @Original_sort_number) AND ([expiration_date] = @Original_expiration_date) AND ([production] = @Original_production) AND ([gettime] = @Original_gettime) AND ([nowPrice] = @Original_nowPrice));
+SELECT DISTINCT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, production, gettime, nowPrice FROM commodity WHERE (itemnumber = @itemnumber) AND (production = @production)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemnumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6652,6 +7030,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@expiration_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiration_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@production", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gettime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gettime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nowPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cost", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6661,6 +7040,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_expiration_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiration_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_production", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_gettime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gettime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nowPrice", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nowPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6673,26 +7053,39 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT  itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, " +
-                "production, gettime\r\nFROM      commodity\r\nWHERE   (sort_number = @Paramater1)";
+            this._commandCollection[0].CommandText = "SELECT DISTINCT itemnumber, name, sort_number, nowPrice\r\nFROM      commodity\r\nWHE" +
+                "RE   (sort_number = @Parameter1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Paramater1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "sort_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parameter1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "sort_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT itemnumber, name, nowPrice, sort_number FROM commodity WHERE (name LIKE N\'" +
+                "%\' + @Parameter1 + N\'%\')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parameter1", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT  production\r\nFROM      commodity\r\nWHERE   (itemnumber = @itemnumber) AND (" +
+                "nowPrice = @nowPrice)\r\nORDER BY production";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemnumber", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nowPrice", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "nowPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(supermarketDataSet.commodityDataTable dataTable, string Paramater1) {
+        public virtual int Fill(supermarketDataSet.commodityDataTable dataTable, string Parameter1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Paramater1 == null)) {
-                throw new global::System.ArgumentNullException("Paramater1");
+            if ((Parameter1 == null)) {
+                throw new global::System.ArgumentNullException("Parameter1");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Paramater1));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Parameter1));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6705,13 +7098,49 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual supermarketDataSet.commodityDataTable GetData(string Paramater1) {
+        public virtual supermarketDataSet.commodityDataTable GetData(string Parameter1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Paramater1 == null)) {
-                throw new global::System.ArgumentNullException("Paramater1");
+            if ((Parameter1 == null)) {
+                throw new global::System.ArgumentNullException("Parameter1");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Paramater1));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Parameter1));
+            }
+            supermarketDataSet.commodityDataTable dataTable = new supermarketDataSet.commodityDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(supermarketDataSet.commodityDataTable dataTable, string Parameter1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Parameter1 == null)) {
+                throw new global::System.ArgumentNullException("Parameter1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Parameter1));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual supermarketDataSet.commodityDataTable GetDataBy(string Parameter1) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Parameter1 == null)) {
+                throw new global::System.ArgumentNullException("Parameter1");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Parameter1));
             }
             supermarketDataSet.commodityDataTable dataTable = new supermarketDataSet.commodityDataTable();
             this.Adapter.Fill(dataTable);
@@ -6751,7 +7180,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_itemnumber, string Original_name, double Original_cost, double Original_sell, int Original_stocknumber, string Original_sort_number, System.DateTime Original_expiration_date, System.DateTime Original_production, System.DateTime Original_gettime) {
+        public virtual int Delete(string Original_itemnumber, string Original_name, double Original_cost, double Original_sell, int Original_stocknumber, string Original_sort_number, System.DateTime Original_expiration_date, System.DateTime Original_production, System.DateTime Original_gettime, double Original_nowPrice) {
             if ((Original_itemnumber == null)) {
                 throw new global::System.ArgumentNullException("Original_itemnumber");
             }
@@ -6776,6 +7205,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
             this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_expiration_date));
             this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_production));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_gettime));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(Original_nowPrice));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6796,7 +7226,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string itemnumber, string name, double cost, double sell, int stocknumber, string sort_number, System.DateTime expiration_date, System.DateTime production, System.DateTime gettime) {
+        public virtual int Insert(string itemnumber, string name, double sell, string sort_number, double nowPrice) {
             if ((itemnumber == null)) {
                 throw new global::System.ArgumentNullException("itemnumber");
             }
@@ -6809,18 +7239,14 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((double)(cost));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((double)(sell));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(stocknumber));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((double)(sell));
             if ((sort_number == null)) {
                 throw new global::System.ArgumentNullException("sort_number");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(sort_number));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(sort_number));
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(expiration_date));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(production));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(gettime));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((double)(nowPrice));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6851,6 +7277,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
                     System.DateTime expiration_date, 
                     System.DateTime production, 
                     System.DateTime gettime, 
+                    double nowPrice, 
                     string Original_itemnumber, 
                     string Original_name, 
                     double Original_cost, 
@@ -6859,7 +7286,8 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
                     string Original_sort_number, 
                     System.DateTime Original_expiration_date, 
                     System.DateTime Original_production, 
-                    System.DateTime Original_gettime) {
+                    System.DateTime Original_gettime, 
+                    double Original_nowPrice) {
             if ((itemnumber == null)) {
                 throw new global::System.ArgumentNullException("itemnumber");
             }
@@ -6884,30 +7312,32 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
             this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(expiration_date));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(production));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(gettime));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(nowPrice));
             if ((Original_itemnumber == null)) {
                 throw new global::System.ArgumentNullException("Original_itemnumber");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_itemnumber));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_itemnumber));
             }
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_name));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(Original_cost));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_sell));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_stocknumber));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_cost));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((double)(Original_sell));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_stocknumber));
             if ((Original_sort_number == null)) {
                 throw new global::System.ArgumentNullException("Original_sort_number");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_sort_number));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_sort_number));
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_expiration_date));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_production));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_gettime));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_expiration_date));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_production));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_gettime));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(Original_nowPrice));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6927,26 +7357,36 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string name, 
-                    double cost, 
-                    double sell, 
-                    int stocknumber, 
-                    string sort_number, 
-                    System.DateTime expiration_date, 
-                    System.DateTime production, 
-                    System.DateTime gettime, 
-                    string Original_itemnumber, 
-                    string Original_name, 
-                    double Original_cost, 
-                    double Original_sell, 
-                    int Original_stocknumber, 
-                    string Original_sort_number, 
-                    System.DateTime Original_expiration_date, 
-                    System.DateTime Original_production, 
-                    System.DateTime Original_gettime) {
-            return this.Update(Original_itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, production, gettime, Original_itemnumber, Original_name, Original_cost, Original_sell, Original_stocknumber, Original_sort_number, Original_expiration_date, Original_production, Original_gettime);
+        public virtual global::System.Nullable<global::System.DateTime> ScalarQuery(string itemnumber, double nowPrice) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((itemnumber == null)) {
+                throw new global::System.ArgumentNullException("itemnumber");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(itemnumber));
+            }
+            command.Parameters[1].Value = ((double)(nowPrice));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<global::System.DateTime>();
+            }
+            else {
+                return new global::System.Nullable<global::System.DateTime>(((global::System.DateTime)(returnValue)));
+            }
         }
     }
     
@@ -7074,6 +7514,7 @@ SELECT itemnumber, name, cost, sell, stocknumber, sort_number, expiration_date, 
             tableMapping.ColumnMappings.Add("ordernumber", "ordernumber");
             tableMapping.ColumnMappings.Add("itemnumber", "itemnumber");
             tableMapping.ColumnMappings.Add("purchasequantity", "purchasequantity");
+            tableMapping.ColumnMappings.Add("production", "production");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7115,11 +7556,23 @@ SELECT ordernumber, itemnumber, purchasequantity FROM orderproducts WHERE (itemn
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ordernumber, itemnumber, purchasequantity FROM dbo.orderproducts";
+            this._commandCollection[0].CommandText = "SELECT  ordernumber, itemnumber, purchasequantity, production\r\nFROM      orderpro" +
+                "ducts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO orderproducts
+                   (ordernumber, itemnumber, purchasequantity, production)
+VALUES  (@ordernumber,@itemnumber,@purchasequantity,@production); 
+SELECT ordernumber, itemnumber, purchasequantity FROM orderproducts WHERE (itemnumber = @itemnumber) AND (ordernumber = @ordernumber)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ordernumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "ordernumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemnumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@purchasequantity", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "purchasequantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@production", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "production", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7276,6 +7729,37 @@ SELECT ordernumber, itemnumber, purchasequantity FROM orderproducts WHERE (itemn
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int purchasequantity, string Original_ordernumber, int Original_itemnumber, int Original_purchasequantity) {
             return this.Update(Original_ordernumber, Original_itemnumber, purchasequantity, Original_ordernumber, Original_itemnumber, Original_purchasequantity);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int InsertQuery(string ordernumber, int itemnumber, int purchasequantity, System.DateTime production) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((ordernumber == null)) {
+                throw new global::System.ArgumentNullException("ordernumber");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(ordernumber));
+            }
+            command.Parameters[1].Value = ((int)(itemnumber));
+            command.Parameters[2].Value = ((int)(purchasequantity));
+            command.Parameters[3].Value = ((System.DateTime)(production));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -8588,11 +9072,18 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT tel, username, sex, points, passwords, jointime FROM dbo.users";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "UPDATE  users\r\nSET           points = points + @Parameter1\r\nWHERE   (tel = @Origi" +
+                "nal_tel);  ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parameter1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "points", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8826,6 +9317,36 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
         public virtual int Update(string username, string sex, int points, string passwords, System.DateTime jointime, string Original_tel, string Original_username, string Original_sex, int Original_points, string Original_passwords, System.DateTime Original_jointime) {
             return this.Update(Original_tel, username, sex, points, passwords, jointime, Original_tel, Original_username, Original_sex, Original_points, Original_passwords, Original_jointime);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(int Parameter1, string Original_tel) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Parameter1));
+            if ((Original_tel == null)) {
+                throw new global::System.ArgumentNullException("Original_tel");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_tel));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -8956,6 +9477,8 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
             tableMapping.ColumnMappings.Add("jointime", "jointime");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("sell", "sell");
+            tableMapping.ColumnMappings.Add("nowPrice", "nowPrice");
+            tableMapping.ColumnMappings.Add("production", "production");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8969,19 +9492,25 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT  tel, itemnumber, quantity, c_state, jointime, name, sell\r\nFROM      cart_" +
-                "1\r\nWHERE   (tel = @Patameter1)";
+            this._commandCollection[0].CommandText = "SELECT  tel, itemnumber, quantity, c_state, jointime, name, sell, nowPrice, produ" +
+                "ction\r\nFROM      cart_1\r\nWHERE   (tel = @Patameter1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patameter1", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT c_state, itemnumber, jointime, name, quantity, sell, tel FROM cart_1 WHERE" +
-                " (tel = @Patameter1) AND (c_state = \'T\')";
+            this._commandCollection[1].CommandText = "SELECT  c_state, itemnumber, jointime, name, quantity, tel, nowPrice, production," +
+                " sell\r\nFROM      cart_1\r\nWHERE   (tel = @Patameter1) AND (c_state = \'T\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patameter1", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT  SUM(quantity * nowPrice) AS Expr1\r\nFROM      cart_1\r\nWHERE   (tel = @Pata" +
+                "meter1) AND (c_state = \'T\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patameter1", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9054,6 +9583,40 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
             supermarketDataSet.cart_1DataTable dataTable = new supermarketDataSet.cart_1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<double> ScalarQuery(string Patameter1) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((Patameter1 == null)) {
+                throw new global::System.ArgumentNullException("Patameter1");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Patameter1));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<double>();
+            }
+            else {
+                return new global::System.Nullable<double>(((double)(returnValue)));
+            }
         }
     }
     
@@ -9361,15 +9924,6 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._commodityTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.commodity.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._commodityTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._orderproductsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.orderproducts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -9415,6 +9969,15 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._commodityTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.commodity.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._commodityTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -9446,14 +10009,6 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._cartTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._commodityTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.commodity.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._commodityTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -9497,6 +10052,14 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._commodityTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.commodity.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._commodityTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -9507,6 +10070,14 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(supermarketDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._commodityTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.commodity.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._commodityTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -9544,14 +10115,6 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._orderproductsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._commodityTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.commodity.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._commodityTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

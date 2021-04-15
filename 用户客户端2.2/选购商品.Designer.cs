@@ -36,30 +36,30 @@ namespace 用户客户端2._2
             this.supermarketDataSet = new 用户客户端2._2.supermarketDataSet();
             this.sortTableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.sortTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocknumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sortnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expirationdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gettimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.commodityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commodityTableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.commodityTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.cart1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cart_1TableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.cart_1TableAdapter();
             this.telDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemnumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cstateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jointimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.production = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cart1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cart_1TableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.cart_1TableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cartTableAdapter1 = new 用户客户端2._2.supermarketDataSetTableAdapters.cartTableAdapter();
+            this.itemnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sortnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.sortBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supermarketDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,9 +88,9 @@ namespace 用户客户端2._2
             this.comboBox1.DisplayMember = "sort_name";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
+            this.comboBox1.Location = new System.Drawing.Point(246, 12);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(776, 23);
+            this.comboBox1.Size = new System.Drawing.Size(542, 23);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "sort_number";
             this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
@@ -122,13 +122,8 @@ namespace 用户客户端2._2
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.itemnumberDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
-            this.costDataGridViewTextBoxColumn,
-            this.sellDataGridViewTextBoxColumn,
-            this.stocknumberDataGridViewTextBoxColumn,
+            this.nowPrice,
             this.sortnumberDataGridViewTextBoxColumn,
-            this.expirationdateDataGridViewTextBoxColumn,
-            this.productionDataGridViewTextBoxColumn,
-            this.gettimeDataGridViewTextBoxColumn,
             this.Column1});
             this.dataGridView1.DataSource = this.commodityBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 41);
@@ -140,22 +135,10 @@ namespace 用户客户端2._2
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // itemnumberDataGridViewTextBoxColumn
+            // commodityBindingSource
             // 
-            this.itemnumberDataGridViewTextBoxColumn.DataPropertyName = "itemnumber";
-            this.itemnumberDataGridViewTextBoxColumn.HeaderText = "itemnumber";
-            this.itemnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemnumberDataGridViewTextBoxColumn.Name = "itemnumberDataGridViewTextBoxColumn";
-            this.itemnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemnumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "商品名称";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commodityBindingSource.DataMember = "commodity";
+            this.commodityBindingSource.DataSource = this.supermarketDataSet;
             // 
             // costDataGridViewTextBoxColumn
             // 
@@ -165,75 +148,7 @@ namespace 用户客户端2._2
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
             this.costDataGridViewTextBoxColumn.ReadOnly = true;
             this.costDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sellDataGridViewTextBoxColumn
-            // 
-            this.sellDataGridViewTextBoxColumn.DataPropertyName = "sell";
-            this.sellDataGridViewTextBoxColumn.HeaderText = "价格";
-            this.sellDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sellDataGridViewTextBoxColumn.Name = "sellDataGridViewTextBoxColumn";
-            this.sellDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stocknumberDataGridViewTextBoxColumn
-            // 
-            this.stocknumberDataGridViewTextBoxColumn.DataPropertyName = "stocknumber";
-            this.stocknumberDataGridViewTextBoxColumn.HeaderText = "stocknumber";
-            this.stocknumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.stocknumberDataGridViewTextBoxColumn.Name = "stocknumberDataGridViewTextBoxColumn";
-            this.stocknumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stocknumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sortnumberDataGridViewTextBoxColumn
-            // 
-            this.sortnumberDataGridViewTextBoxColumn.DataPropertyName = "sort_number";
-            this.sortnumberDataGridViewTextBoxColumn.HeaderText = "sort_number";
-            this.sortnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sortnumberDataGridViewTextBoxColumn.Name = "sortnumberDataGridViewTextBoxColumn";
-            this.sortnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sortnumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // expirationdateDataGridViewTextBoxColumn
-            // 
-            this.expirationdateDataGridViewTextBoxColumn.DataPropertyName = "expiration_date";
-            this.expirationdateDataGridViewTextBoxColumn.HeaderText = "expiration_date";
-            this.expirationdateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.expirationdateDataGridViewTextBoxColumn.Name = "expirationdateDataGridViewTextBoxColumn";
-            this.expirationdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.expirationdateDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productionDataGridViewTextBoxColumn
-            // 
-            this.productionDataGridViewTextBoxColumn.DataPropertyName = "production";
-            this.productionDataGridViewTextBoxColumn.HeaderText = "production";
-            this.productionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.productionDataGridViewTextBoxColumn.Name = "productionDataGridViewTextBoxColumn";
-            this.productionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // gettimeDataGridViewTextBoxColumn
-            // 
-            this.gettimeDataGridViewTextBoxColumn.DataPropertyName = "gettime";
-            this.gettimeDataGridViewTextBoxColumn.HeaderText = "gettime";
-            this.gettimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.gettimeDataGridViewTextBoxColumn.Name = "gettimeDataGridViewTextBoxColumn";
-            this.gettimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.gettimeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "操作";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column1.Text = "添加到购物车";
-            this.Column1.UseColumnTextForButtonValue = true;
-            // 
-            // commodityBindingSource
-            // 
-            this.commodityBindingSource.DataMember = "commodity";
-            this.commodityBindingSource.DataSource = this.supermarketDataSet;
+            this.costDataGridViewTextBoxColumn.Width = 125;
             // 
             // commodityTableAdapter
             // 
@@ -242,6 +157,7 @@ namespace 用户客户端2._2
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.AutoGenerateColumns = false;
@@ -252,11 +168,12 @@ namespace 用户客户端2._2
             this.itemnumberDataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1,
             this.quantityDataGridViewTextBoxColumn,
-            this.sellDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn1,
             this.cstateDataGridViewTextBoxColumn,
             this.jointimeDataGridViewTextBoxColumn,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.production});
             this.dataGridView2.DataSource = this.cart1BindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(12, 241);
             this.dataGridView2.Name = "dataGridView2";
@@ -266,15 +183,6 @@ namespace 用户客户端2._2
             this.dataGridView2.Size = new System.Drawing.Size(776, 166);
             this.dataGridView2.TabIndex = 3;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // cart1BindingSource
-            // 
-            this.cart1BindingSource.DataMember = "cart_1";
-            this.cart1BindingSource.DataSource = this.supermarketDataSet;
-            // 
-            // cart_1TableAdapter
-            // 
-            this.cart_1TableAdapter.ClearBeforeFill = true;
             // 
             // telDataGridViewTextBoxColumn
             // 
@@ -310,13 +218,13 @@ namespace 用户客户端2._2
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // sellDataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn1
             // 
-            this.sellDataGridViewTextBoxColumn1.DataPropertyName = "sell";
-            this.sellDataGridViewTextBoxColumn1.HeaderText = "价格";
-            this.sellDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.sellDataGridViewTextBoxColumn1.Name = "sellDataGridViewTextBoxColumn1";
-            this.sellDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nowPrice";
+            this.dataGridViewTextBoxColumn1.HeaderText = "价格";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cstateDataGridViewTextBoxColumn
             // 
@@ -357,11 +265,97 @@ namespace 用户客户端2._2
             this.Column3.Text = "+";
             this.Column3.UseColumnTextForButtonValue = true;
             // 
+            // production
+            // 
+            this.production.DataPropertyName = "production";
+            this.production.HeaderText = "production";
+            this.production.MinimumWidth = 6;
+            this.production.Name = "production";
+            this.production.ReadOnly = true;
+            this.production.Visible = false;
+            // 
+            // cart1BindingSource
+            // 
+            this.cart1BindingSource.DataMember = "cart_1";
+            this.cart1BindingSource.DataSource = this.supermarketDataSet;
+            // 
+            // cart_1TableAdapter
+            // 
+            this.cart_1TableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "搜索";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(55, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(185, 25);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // cartTableAdapter1
+            // 
+            this.cartTableAdapter1.ClearBeforeFill = true;
+            // 
+            // itemnumberDataGridViewTextBoxColumn
+            // 
+            this.itemnumberDataGridViewTextBoxColumn.DataPropertyName = "itemnumber";
+            this.itemnumberDataGridViewTextBoxColumn.HeaderText = "itemnumber";
+            this.itemnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemnumberDataGridViewTextBoxColumn.Name = "itemnumberDataGridViewTextBoxColumn";
+            this.itemnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemnumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "商品名称";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nowPrice
+            // 
+            this.nowPrice.DataPropertyName = "nowPrice";
+            this.nowPrice.HeaderText = "现价";
+            this.nowPrice.MinimumWidth = 6;
+            this.nowPrice.Name = "nowPrice";
+            this.nowPrice.ReadOnly = true;
+            // 
+            // sortnumberDataGridViewTextBoxColumn
+            // 
+            this.sortnumberDataGridViewTextBoxColumn.DataPropertyName = "sort_number";
+            this.sortnumberDataGridViewTextBoxColumn.HeaderText = "sort_number";
+            this.sortnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sortnumberDataGridViewTextBoxColumn.Name = "sortnumberDataGridViewTextBoxColumn";
+            this.sortnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sortnumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "操作";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column1.Text = "添加到购物车";
+            this.Column1.UseColumnTextForButtonValue = true;
+            // 
             // 选购商品
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
@@ -390,28 +384,32 @@ namespace 用户客户端2._2
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource commodityBindingSource;
         private supermarketDataSetTableAdapters.commodityTableAdapter commodityTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stocknumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sortnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expirationdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gettimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource cart1BindingSource;
         private supermarketDataSetTableAdapters.cart_1TableAdapter cart_1TableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private supermarketDataSetTableAdapters.cartTableAdapter cartTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stocknumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expirationdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gettimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemnumberDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cstateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jointimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn production;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nowPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sortnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }
 

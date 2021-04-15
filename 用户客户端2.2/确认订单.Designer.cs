@@ -37,7 +37,6 @@ namespace 用户客户端2._2
             this.usetelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supermarketDataSet = new 用户客户端2._2.supermarketDataSet();
-            this.addresTableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.addresTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.telDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +44,11 @@ namespace 用户客户端2._2
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cstateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jointimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.production = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cart1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supermarketDataSet1 = new 用户客户端2._2.supermarketDataSet();
-            this.cart_1TableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.cart_1TableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +56,12 @@ namespace 用户客户端2._2
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.addresTableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.addresTableAdapter();
+            this.cart_1TableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.cart_1TableAdapter();
+            this.orderproductsTableAdapter1 = new 用户客户端2._2.supermarketDataSetTableAdapters.orderproductsTableAdapter();
+            this.usersTableAdapter1 = new 用户客户端2._2.supermarketDataSetTableAdapters.usersTableAdapter();
+            this.bookTableAdapter1 = new 用户客户端2._2.supermarketDataSetTableAdapters.bookTableAdapter();
+            this.commodityTableAdapter1 = new 用户客户端2._2.supermarketDataSetTableAdapters.commodityTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supermarketDataSet)).BeginInit();
@@ -87,7 +94,6 @@ namespace 用户客户端2._2
             this.dataGridView1.Size = new System.Drawing.Size(784, 105);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.Leave += new System.EventHandler(this.dataGridView1_Leave);
             // 
             // telDataGridViewTextBoxColumn
             // 
@@ -132,10 +138,6 @@ namespace 用户客户端2._2
             this.supermarketDataSet.DataSetName = "supermarketDataSet";
             this.supermarketDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // addresTableAdapter
-            // 
-            this.addresTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -151,7 +153,10 @@ namespace 用户客户端2._2
             this.nameDataGridViewTextBoxColumn1,
             this.quantityDataGridViewTextBoxColumn,
             this.cstateDataGridViewTextBoxColumn,
-            this.jointimeDataGridViewTextBoxColumn});
+            this.jointimeDataGridViewTextBoxColumn,
+            this.nowPrice,
+            this.production,
+            this.sell});
             this.dataGridView2.DataSource = this.cart1BindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(12, 123);
             this.dataGridView2.Name = "dataGridView2";
@@ -213,6 +218,32 @@ namespace 用户客户端2._2
             this.jointimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.jointimeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // nowPrice
+            // 
+            this.nowPrice.DataPropertyName = "nowPrice";
+            this.nowPrice.HeaderText = "价格";
+            this.nowPrice.MinimumWidth = 6;
+            this.nowPrice.Name = "nowPrice";
+            this.nowPrice.ReadOnly = true;
+            // 
+            // production
+            // 
+            this.production.DataPropertyName = "production";
+            this.production.HeaderText = "production";
+            this.production.MinimumWidth = 6;
+            this.production.Name = "production";
+            this.production.ReadOnly = true;
+            this.production.Visible = false;
+            // 
+            // sell
+            // 
+            this.sell.DataPropertyName = "sell";
+            this.sell.HeaderText = "sell";
+            this.sell.MinimumWidth = 6;
+            this.sell.Name = "sell";
+            this.sell.ReadOnly = true;
+            this.sell.Visible = false;
+            // 
             // cart1BindingSource
             // 
             this.cart1BindingSource.DataMember = "cart_1";
@@ -222,10 +253,6 @@ namespace 用户客户端2._2
             // 
             this.supermarketDataSet1.DataSetName = "supermarketDataSet";
             this.supermarketDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cart_1TableAdapter
-            // 
-            this.cart_1TableAdapter.ClearBeforeFill = true;
             // 
             // button1
             // 
@@ -268,6 +295,7 @@ namespace 用户客户端2._2
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(92, 122);
+            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(100, 25);
@@ -298,6 +326,30 @@ namespace 用户客户端2._2
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "订单号";
+            // 
+            // addresTableAdapter
+            // 
+            this.addresTableAdapter.ClearBeforeFill = true;
+            // 
+            // cart_1TableAdapter
+            // 
+            this.cart_1TableAdapter.ClearBeforeFill = true;
+            // 
+            // orderproductsTableAdapter1
+            // 
+            this.orderproductsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usersTableAdapter1
+            // 
+            this.usersTableAdapter1.ClearBeforeFill = true;
+            // 
+            // bookTableAdapter1
+            // 
+            this.bookTableAdapter1.ClearBeforeFill = true;
+            // 
+            // commodityTableAdapter1
+            // 
+            this.commodityTableAdapter1.ClearBeforeFill = true;
             // 
             // 确认订单
             // 
@@ -335,12 +387,6 @@ namespace 用户客户端2._2
         private System.Windows.Forms.DataGridViewTextBoxColumn adrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usetelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemnumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cstateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jointimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource cart1BindingSource;
         private supermarketDataSet supermarketDataSet1;
         private supermarketDataSetTableAdapters.cart_1TableAdapter cart_1TableAdapter;
@@ -351,5 +397,18 @@ namespace 用户客户端2._2
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private supermarketDataSetTableAdapters.orderproductsTableAdapter orderproductsTableAdapter1;
+        private supermarketDataSetTableAdapters.usersTableAdapter usersTableAdapter1;
+        private supermarketDataSetTableAdapters.bookTableAdapter bookTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cstateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jointimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nowPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn production;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sell;
+        private supermarketDataSetTableAdapters.commodityTableAdapter commodityTableAdapter1;
     }
 }

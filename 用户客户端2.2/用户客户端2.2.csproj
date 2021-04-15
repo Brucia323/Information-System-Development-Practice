@@ -72,12 +72,6 @@
     <Compile Include="确认订单.Designer.cs">
       <DependentUpon>确认订单.cs</DependentUpon>
     </Compile>
-    <Compile Include="购物车.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="购物车.Designer.cs">
-      <DependentUpon>购物车.cs</DependentUpon>
-    </Compile>
     <Compile Include="选购商品.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,9 +97,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="确认订单.resx">
       <DependentUpon>确认订单.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="购物车.resx">
-      <DependentUpon>购物车.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="选购商品.resx">
       <DependentUpon>选购商品.cs</DependentUpon>

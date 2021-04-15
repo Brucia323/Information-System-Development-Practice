@@ -9,6 +9,5 @@ C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户�
 C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.exe
 C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2.2.pdb
 C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.登录.resources
-C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.购物车.resources
 C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.确认订单.resources
 C:\Users\14485\Documents\GitHub\Information-System-Development-Practice\用户客户端2.2\obj\Debug\用户客户端2._2.支付.resources
