@@ -36,6 +36,11 @@ namespace 用户客户端2._2
             this.supermarketDataSet = new 用户客户端2._2.supermarketDataSet();
             this.sortTableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.sortTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.itemnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sortnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.commodityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commodityTableAdapter = new 用户客户端2._2.supermarketDataSetTableAdapters.commodityTableAdapter();
@@ -55,11 +60,7 @@ namespace 用户客户端2._2
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cartTableAdapter1 = new 用户客户端2._2.supermarketDataSetTableAdapters.cartTableAdapter();
-            this.itemnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sortnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sortBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supermarketDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,9 +89,9 @@ namespace 用户客户端2._2
             this.comboBox1.DisplayMember = "sort_name";
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(246, 12);
+            this.comboBox1.Location = new System.Drawing.Point(327, 12);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(542, 23);
+            this.comboBox1.Size = new System.Drawing.Size(461, 23);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.ValueMember = "sort_number";
             this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
@@ -134,6 +135,51 @@ namespace 用户客户端2._2
             this.dataGridView1.Size = new System.Drawing.Size(776, 194);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // itemnumberDataGridViewTextBoxColumn
+            // 
+            this.itemnumberDataGridViewTextBoxColumn.DataPropertyName = "itemnumber";
+            this.itemnumberDataGridViewTextBoxColumn.HeaderText = "itemnumber";
+            this.itemnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.itemnumberDataGridViewTextBoxColumn.Name = "itemnumberDataGridViewTextBoxColumn";
+            this.itemnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemnumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "商品名称";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nowPrice
+            // 
+            this.nowPrice.DataPropertyName = "nowPrice";
+            this.nowPrice.HeaderText = "现价";
+            this.nowPrice.MinimumWidth = 6;
+            this.nowPrice.Name = "nowPrice";
+            this.nowPrice.ReadOnly = true;
+            // 
+            // sortnumberDataGridViewTextBoxColumn
+            // 
+            this.sortnumberDataGridViewTextBoxColumn.DataPropertyName = "sort_number";
+            this.sortnumberDataGridViewTextBoxColumn.HeaderText = "sort_number";
+            this.sortnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sortnumberDataGridViewTextBoxColumn.Name = "sortnumberDataGridViewTextBoxColumn";
+            this.sortnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sortnumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "操作";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column1.Text = "添加到购物车";
+            this.Column1.UseColumnTextForButtonValue = true;
             // 
             // commodityBindingSource
             // 
@@ -286,7 +332,7 @@ namespace 用户客户端2._2
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(93, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 4;
@@ -294,7 +340,7 @@ namespace 用户客户端2._2
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(55, 12);
+            this.textBox1.Location = new System.Drawing.Point(136, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 25);
             this.textBox1.TabIndex = 5;
@@ -304,56 +350,22 @@ namespace 用户客户端2._2
             // 
             this.cartTableAdapter1.ClearBeforeFill = true;
             // 
-            // itemnumberDataGridViewTextBoxColumn
+            // button2
             // 
-            this.itemnumberDataGridViewTextBoxColumn.DataPropertyName = "itemnumber";
-            this.itemnumberDataGridViewTextBoxColumn.HeaderText = "itemnumber";
-            this.itemnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.itemnumberDataGridViewTextBoxColumn.Name = "itemnumberDataGridViewTextBoxColumn";
-            this.itemnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemnumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "商品名称";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nowPrice
-            // 
-            this.nowPrice.DataPropertyName = "nowPrice";
-            this.nowPrice.HeaderText = "现价";
-            this.nowPrice.MinimumWidth = 6;
-            this.nowPrice.Name = "nowPrice";
-            this.nowPrice.ReadOnly = true;
-            // 
-            // sortnumberDataGridViewTextBoxColumn
-            // 
-            this.sortnumberDataGridViewTextBoxColumn.DataPropertyName = "sort_number";
-            this.sortnumberDataGridViewTextBoxColumn.HeaderText = "sort_number";
-            this.sortnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sortnumberDataGridViewTextBoxColumn.Name = "sortnumberDataGridViewTextBoxColumn";
-            this.sortnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sortnumberDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "操作";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column1.Text = "添加到购物车";
-            this.Column1.UseColumnTextForButtonValue = true;
+            this.button2.Location = new System.Drawing.Point(12, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "个人中心";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // 选购商品
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
@@ -410,6 +422,7 @@ namespace 用户客户端2._2
         private System.Windows.Forms.DataGridViewTextBoxColumn nowPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn sortnumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
