@@ -881,7 +881,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
   <xs:element name="supermarketDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="supermarketDataSet" msprop:Generator_UserDSName="supermarketDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="addres" msprop:Generator_TableClassName="addresDataTable" msprop:Generator_TableVarName="tableaddres" msprop:Generator_RowChangedName="addresRowChanged" msprop:Generator_TablePropName="addres" msprop:Generator_RowDeletingName="addresRowDeleting" msprop:Generator_RowChangingName="addresRowChanging" msprop:Generator_RowEvHandlerName="addresRowChangeEventHandler" msprop:Generator_RowDeletedName="addresRowDeleted" msprop:Generator_RowClassName="addresRow" msprop:Generator_UserTableName="addres" msprop:Generator_RowEvArgName="addresRowChangeEvent">
+        <xs:element name="addres" msprop:Generator_TableClassName="addresDataTable" msprop:Generator_TableVarName="tableaddres" msprop:Generator_TablePropName="addres" msprop:Generator_RowDeletingName="addresRowDeleting" msprop:Generator_RowChangingName="addresRowChanging" msprop:Generator_RowEvHandlerName="addresRowChangeEventHandler" msprop:Generator_RowDeletedName="addresRowDeleted" msprop:Generator_UserTableName="addres" msprop:Generator_RowChangedName="addresRowChanged" msprop:Generator_RowEvArgName="addresRowChangeEvent" msprop:Generator_RowClassName="addresRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tel" msprop:Generator_ColumnVarNameInTable="columntel" msprop:Generator_ColumnPropNameInRow="tel" msprop:Generator_ColumnPropNameInTable="telColumn" msprop:Generator_UserColumnName="tel">
@@ -915,7 +915,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="book" msprop:Generator_TableClassName="bookDataTable" msprop:Generator_TableVarName="tablebook" msprop:Generator_RowChangedName="bookRowChanged" msprop:Generator_TablePropName="book" msprop:Generator_RowDeletingName="bookRowDeleting" msprop:Generator_RowChangingName="bookRowChanging" msprop:Generator_RowEvHandlerName="bookRowChangeEventHandler" msprop:Generator_RowDeletedName="bookRowDeleted" msprop:Generator_RowClassName="bookRow" msprop:Generator_UserTableName="book" msprop:Generator_RowEvArgName="bookRowChangeEvent">
+        <xs:element name="book" msprop:Generator_TableClassName="bookDataTable" msprop:Generator_TableVarName="tablebook" msprop:Generator_TablePropName="book" msprop:Generator_RowDeletingName="bookRowDeleting" msprop:Generator_RowChangingName="bookRowChanging" msprop:Generator_RowEvHandlerName="bookRowChangeEventHandler" msprop:Generator_RowDeletedName="bookRowDeleted" msprop:Generator_UserTableName="book" msprop:Generator_RowChangedName="bookRowChanged" msprop:Generator_RowEvArgName="bookRowChangeEvent" msprop:Generator_RowClassName="bookRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ordernamber" msprop:Generator_ColumnVarNameInTable="columnordernamber" msprop:Generator_ColumnPropNameInRow="ordernamber" msprop:Generator_ColumnPropNameInTable="ordernamberColumn" msprop:Generator_UserColumnName="ordernamber">
@@ -963,7 +963,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="cart" msprop:Generator_TableClassName="cartDataTable" msprop:Generator_TableVarName="tablecart" msprop:Generator_RowChangedName="cartRowChanged" msprop:Generator_TablePropName="cart" msprop:Generator_RowDeletingName="cartRowDeleting" msprop:Generator_RowChangingName="cartRowChanging" msprop:Generator_RowEvHandlerName="cartRowChangeEventHandler" msprop:Generator_RowDeletedName="cartRowDeleted" msprop:Generator_RowClassName="cartRow" msprop:Generator_UserTableName="cart" msprop:Generator_RowEvArgName="cartRowChangeEvent">
+        <xs:element name="cart" msprop:Generator_TableClassName="cartDataTable" msprop:Generator_TableVarName="tablecart" msprop:Generator_TablePropName="cart" msprop:Generator_RowDeletingName="cartRowDeleting" msprop:Generator_RowChangingName="cartRowChanging" msprop:Generator_RowEvHandlerName="cartRowChangeEventHandler" msprop:Generator_RowDeletedName="cartRowDeleted" msprop:Generator_UserTableName="cart" msprop:Generator_RowChangedName="cartRowChanged" msprop:Generator_RowEvArgName="cartRowChangeEvent" msprop:Generator_RowClassName="cartRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tel" msprop:Generator_ColumnVarNameInTable="columntel" msprop:Generator_ColumnPropNameInRow="tel" msprop:Generator_ColumnPropNameInTable="telColumn" msprop:Generator_UserColumnName="tel">
@@ -993,7 +993,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="orderproducts" msprop:Generator_TableClassName="orderproductsDataTable" msprop:Generator_TableVarName="tableorderproducts" msprop:Generator_RowChangedName="orderproductsRowChanged" msprop:Generator_TablePropName="orderproducts" msprop:Generator_RowDeletingName="orderproductsRowDeleting" msprop:Generator_RowChangingName="orderproductsRowChanging" msprop:Generator_RowEvHandlerName="orderproductsRowChangeEventHandler" msprop:Generator_RowDeletedName="orderproductsRowDeleted" msprop:Generator_RowClassName="orderproductsRow" msprop:Generator_UserTableName="orderproducts" msprop:Generator_RowEvArgName="orderproductsRowChangeEvent">
+        <xs:element name="orderproducts" msprop:Generator_TableClassName="orderproductsDataTable" msprop:Generator_TableVarName="tableorderproducts" msprop:Generator_TablePropName="orderproducts" msprop:Generator_RowDeletingName="orderproductsRowDeleting" msprop:Generator_RowChangingName="orderproductsRowChanging" msprop:Generator_RowEvHandlerName="orderproductsRowChangeEventHandler" msprop:Generator_RowDeletedName="orderproductsRowDeleted" msprop:Generator_UserTableName="orderproducts" msprop:Generator_RowChangedName="orderproductsRowChanged" msprop:Generator_RowEvArgName="orderproductsRowChangeEvent" msprop:Generator_RowClassName="orderproductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ordernumber" msprop:Generator_ColumnVarNameInTable="columnordernumber" msprop:Generator_ColumnPropNameInRow="ordernumber" msprop:Generator_ColumnPropNameInTable="ordernumberColumn" msprop:Generator_UserColumnName="ordernumber">
@@ -1009,7 +1009,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="returnorders" msprop:Generator_TableClassName="returnordersDataTable" msprop:Generator_TableVarName="tablereturnorders" msprop:Generator_RowChangedName="returnordersRowChanged" msprop:Generator_TablePropName="returnorders" msprop:Generator_RowDeletingName="returnordersRowDeleting" msprop:Generator_RowChangingName="returnordersRowChanging" msprop:Generator_RowEvHandlerName="returnordersRowChangeEventHandler" msprop:Generator_RowDeletedName="returnordersRowDeleted" msprop:Generator_RowClassName="returnordersRow" msprop:Generator_UserTableName="returnorders" msprop:Generator_RowEvArgName="returnordersRowChangeEvent">
+        <xs:element name="returnorders" msprop:Generator_TableClassName="returnordersDataTable" msprop:Generator_TableVarName="tablereturnorders" msprop:Generator_TablePropName="returnorders" msprop:Generator_RowDeletingName="returnordersRowDeleting" msprop:Generator_RowChangingName="returnordersRowChanging" msprop:Generator_RowEvHandlerName="returnordersRowChangeEventHandler" msprop:Generator_RowDeletedName="returnordersRowDeleted" msprop:Generator_UserTableName="returnorders" msprop:Generator_RowChangedName="returnordersRowChanged" msprop:Generator_RowEvArgName="returnordersRowChangeEvent" msprop:Generator_RowClassName="returnordersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ordernumber" msprop:Generator_ColumnVarNameInTable="columnordernumber" msprop:Generator_ColumnPropNameInRow="ordernumber" msprop:Generator_ColumnPropNameInTable="ordernumberColumn" msprop:Generator_UserColumnName="ordernumber">
@@ -1032,7 +1032,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sort" msprop:Generator_TableClassName="sortDataTable" msprop:Generator_TableVarName="tablesort" msprop:Generator_RowChangedName="sortRowChanged" msprop:Generator_TablePropName="sort" msprop:Generator_RowDeletingName="sortRowDeleting" msprop:Generator_RowChangingName="sortRowChanging" msprop:Generator_RowEvHandlerName="sortRowChangeEventHandler" msprop:Generator_RowDeletedName="sortRowDeleted" msprop:Generator_RowClassName="sortRow" msprop:Generator_UserTableName="sort" msprop:Generator_RowEvArgName="sortRowChangeEvent">
+        <xs:element name="sort" msprop:Generator_TableClassName="sortDataTable" msprop:Generator_TableVarName="tablesort" msprop:Generator_TablePropName="sort" msprop:Generator_RowDeletingName="sortRowDeleting" msprop:Generator_RowChangingName="sortRowChanging" msprop:Generator_RowEvHandlerName="sortRowChangeEventHandler" msprop:Generator_RowDeletedName="sortRowDeleted" msprop:Generator_UserTableName="sort" msprop:Generator_RowChangedName="sortRowChanged" msprop:Generator_RowEvArgName="sortRowChangeEvent" msprop:Generator_RowClassName="sortRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sort_number" msprop:Generator_ColumnVarNameInTable="columnsort_number" msprop:Generator_ColumnPropNameInRow="sort_number" msprop:Generator_ColumnPropNameInTable="sort_numberColumn" msprop:Generator_UserColumnName="sort_number">
@@ -1052,7 +1052,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="staff" msprop:Generator_TableClassName="staffDataTable" msprop:Generator_TableVarName="tablestaff" msprop:Generator_RowChangedName="staffRowChanged" msprop:Generator_TablePropName="staff" msprop:Generator_RowDeletingName="staffRowDeleting" msprop:Generator_RowChangingName="staffRowChanging" msprop:Generator_RowEvHandlerName="staffRowChangeEventHandler" msprop:Generator_RowDeletedName="staffRowDeleted" msprop:Generator_RowClassName="staffRow" msprop:Generator_UserTableName="staff" msprop:Generator_RowEvArgName="staffRowChangeEvent">
+        <xs:element name="staff" msprop:Generator_TableClassName="staffDataTable" msprop:Generator_TableVarName="tablestaff" msprop:Generator_TablePropName="staff" msprop:Generator_RowDeletingName="staffRowDeleting" msprop:Generator_RowChangingName="staffRowChanging" msprop:Generator_RowEvHandlerName="staffRowChangeEventHandler" msprop:Generator_RowDeletedName="staffRowDeleted" msprop:Generator_UserTableName="staff" msprop:Generator_RowChangedName="staffRowChanged" msprop:Generator_RowEvArgName="staffRowChangeEvent" msprop:Generator_RowClassName="staffRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="stfnumber" msprop:Generator_ColumnVarNameInTable="columnstfnumber" msprop:Generator_ColumnPropNameInRow="stfnumber" msprop:Generator_ColumnPropNameInTable="stfnumberColumn" msprop:Generator_UserColumnName="stfnumber" type="xs:int" />
@@ -1075,7 +1075,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tel" msprop:Generator_ColumnVarNameInTable="columntel" msprop:Generator_ColumnPropNameInRow="tel" msprop:Generator_ColumnPropNameInTable="telColumn" msprop:Generator_UserColumnName="tel">
@@ -1111,7 +1111,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="cart_1" msprop:Generator_TableClassName="cart_1DataTable" msprop:Generator_TableVarName="tablecart_1" msprop:Generator_RowChangedName="cart_1RowChanged" msprop:Generator_TablePropName="cart_1" msprop:Generator_RowDeletingName="cart_1RowDeleting" msprop:Generator_RowChangingName="cart_1RowChanging" msprop:Generator_RowEvHandlerName="cart_1RowChangeEventHandler" msprop:Generator_RowDeletedName="cart_1RowDeleted" msprop:Generator_RowClassName="cart_1Row" msprop:Generator_UserTableName="cart_1" msprop:Generator_RowEvArgName="cart_1RowChangeEvent">
+        <xs:element name="cart_1" msprop:Generator_TableClassName="cart_1DataTable" msprop:Generator_TableVarName="tablecart_1" msprop:Generator_TablePropName="cart_1" msprop:Generator_RowDeletingName="cart_1RowDeleting" msprop:Generator_RowChangingName="cart_1RowChanging" msprop:Generator_RowEvHandlerName="cart_1RowChangeEventHandler" msprop:Generator_RowDeletedName="cart_1RowDeleted" msprop:Generator_UserTableName="cart_1" msprop:Generator_RowChangedName="cart_1RowChanged" msprop:Generator_RowEvArgName="cart_1RowChangeEvent" msprop:Generator_RowClassName="cart_1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="tel" msprop:Generator_ColumnVarNameInTable="columntel" msprop:Generator_ColumnPropNameInRow="tel" msprop:Generator_ColumnPropNameInTable="telColumn" msprop:Generator_UserColumnName="tel">
@@ -1150,7 +1150,7 @@ WHERE   (tel = @Patameter1) AND (c_state = 'T')</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="commodity" msprop:Generator_TableClassName="commodityDataTable" msprop:Generator_TableVarName="tablecommodity" msprop:Generator_RowChangedName="commodityRowChanged" msprop:Generator_TablePropName="commodity" msprop:Generator_RowDeletingName="commodityRowDeleting" msprop:Generator_RowChangingName="commodityRowChanging" msprop:Generator_RowEvHandlerName="commodityRowChangeEventHandler" msprop:Generator_RowDeletedName="commodityRowDeleted" msprop:Generator_RowClassName="commodityRow" msprop:Generator_UserTableName="commodity" msprop:Generator_RowEvArgName="commodityRowChangeEvent">
+        <xs:element name="commodity" msprop:Generator_TableClassName="commodityDataTable" msprop:Generator_TableVarName="tablecommodity" msprop:Generator_TablePropName="commodity" msprop:Generator_RowDeletingName="commodityRowDeleting" msprop:Generator_RowChangingName="commodityRowChanging" msprop:Generator_RowEvHandlerName="commodityRowChangeEventHandler" msprop:Generator_RowDeletedName="commodityRowDeleted" msprop:Generator_UserTableName="commodity" msprop:Generator_RowChangedName="commodityRowChanged" msprop:Generator_RowEvArgName="commodityRowChangeEvent" msprop:Generator_RowClassName="commodityRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="itemnumber" msprop:Generator_ColumnVarNameInTable="columnitemnumber" msprop:Generator_ColumnPropNameInRow="itemnumber" msprop:Generator_ColumnPropNameInTable="itemnumberColumn" msprop:Generator_UserColumnName="itemnumber">
