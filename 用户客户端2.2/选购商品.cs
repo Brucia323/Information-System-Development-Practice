@@ -45,17 +45,10 @@ namespace 用户客户端2._2
             cart_1TableAdapter.Fill(supermarketDataSet.cart_1, 登录.tel);
         }
 
-        public static bool flag = false;
         private void button1_Click(object sender, EventArgs e)
         {
             确认订单 q = new 确认订单();
             q.ShowDialog();
-            if (flag == true)
-            {
-                // TODO: 这行代码将数据从表“cart”中删除。您可以根据需要移动或删除它。
-                cartTableAdapter1.DeleteQuery(登录.tel);
-                flag = false;
-            }
             // TODO: 这行代码将数据加载到表“supermarketDataSet.cart_1”中。您可以根据需要移动或删除它。
             cart_1TableAdapter.Fill(supermarketDataSet.cart_1, 登录.tel);
         }
