@@ -32,10 +32,12 @@ namespace 用户客户端2._2
             {
                 try
                 {
+                    // TODO: 这行代码将数据插入到表“cart”中。您可以根据需要移动或删除它。
                     cartTableAdapter1.InsertQuery(登录.tel, dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), DateTime.Now, (DateTime)commodityTableAdapter.ScalarQuery(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), (double)dataGridView1.Rows[e.RowIndex].Cells[2].Value));
                 }
                 catch
                 {
+                    // TODO: 这行代码将数据更新到表“cart”中。您可以根据需要移动或删除它。
                     cartTableAdapter1.UpdateQuery3(登录.tel, dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 }
             }
@@ -50,6 +52,7 @@ namespace 用户客户端2._2
             q.ShowDialog();
             if (flag == true)
             {
+                // TODO: 这行代码将数据从表“cart”中删除。您可以根据需要移动或删除它。
                 cartTableAdapter1.DeleteQuery(登录.tel);
                 flag = false;
             }
@@ -63,10 +66,12 @@ namespace 用户客户端2._2
             {
                 if (dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString() == "T")
                 {
+                    // TODO: 这行代码将数据更新到表“cart”中。您可以根据需要移动或删除它。
                     cartTableAdapter1.UpdateQuery(登录.tel, dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
                 }
                 if (dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString() == "F")
                 {
+                    // TODO: 这行代码将数据更新到表“cart”中。您可以根据需要移动或删除它。
                     cartTableAdapter1.UpdateQuery1(登录.tel, dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
                 }
             }
@@ -74,15 +79,18 @@ namespace 用户客户端2._2
             {
                 if (dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString() == "1")
                 {
+                    // TODO: 这行代码将数据从表“cart”中删除。您可以根据需要移动或删除它。
                     cartTableAdapter1.DeleteQuery1(登录.tel, dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString(), (DateTime)dataGridView2.Rows[e.RowIndex].Cells[9].Value);
                 }
                 else
                 {
+                    // TODO: 这行代码将数据更新到表“cart”中。您可以根据需要移动或删除它。
                     cartTableAdapter1.UpdateQuery2(登录.tel, dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
                 }
             }
             if (dataGridView2.Columns[e.ColumnIndex].Name == "Column3")
             {
+                // TODO: 这行代码将数据更新到表“cart”中。您可以根据需要移动或删除它。
                 cartTableAdapter1.UpdateQuery3(登录.tel, dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString());
             }
             // TODO: 这行代码将数据加载到表“supermarketDataSet.cart_1”中。您可以根据需要移动或删除它。
