@@ -84,10 +84,16 @@ namespace 用户客户端2._2
             }
             // TODO: 这行代码将数据更新到表“users”中。您可以根据需要移动或删除它。
             usersTableAdapter1.UpdateQuery(Convert.ToInt32(amount), 登录.tel);
+            // TODO: 这行代码将数据从表“cart”中删除。您可以根据需要移动或删除它。
+            cartTableAdapter1.DeleteQuery(登录.tel);
             支付 pay = new 支付();
             pay.ShowDialog();
-            选购商品.flag = true;
             Close();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
