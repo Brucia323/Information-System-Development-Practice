@@ -9,7 +9,7 @@ namespace 用户客户端2._2
         private string address = "";
         private string usetel = "";
         private string orderNumber;
-        public static double amount;
+        private double amount;
         public 确认订单()
         {
             InitializeComponent();
@@ -21,6 +21,7 @@ namespace 用户客户端2._2
             addresTableAdapter.Fill(supermarketDataSet.addres, 登录.tel);
             try
             {
+                // TODO: 这行代码将数据加载到表“supermarketDataSet.cart_1”中。您可以根据需要移动或删除它。
                 cart_1TableAdapter.FillBy(supermarketDataSet1.cart_1, 登录.tel);
             }
             catch (System.Exception ex)
@@ -29,6 +30,7 @@ namespace 用户客户端2._2
             }
             try
             {
+                // TODO: 这行代码将数据加载到值“amount”中。您可以根据需要移动或删除它。
                 amount = (double)cart_1TableAdapter.ScalarQuery(登录.tel);
             }
             catch (Exception)
@@ -48,7 +50,7 @@ namespace 用户客户端2._2
             catch (Exception)
             {
                 MessageBox.Show("请添加地址");
-                //调用添加地址的页面
+                // TODO: 调用添加地址的页面
                 try
                 {
                     // TODO: 这行代码将数据加载到表“supermarketDataSet.addres”中。您可以根据需要移动或删除它。
@@ -73,11 +75,14 @@ namespace 用户客户端2._2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据插入到表“book”中。您可以根据需要移动或删除它。
             bookTableAdapter1.InsertQuery(orderNumber, (int)amount, 登录.tel, usetel, address, DateTime.Now, DateTime.Now);
             for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
+                // TODO: 这行代码将数据插入到表“orderproducts”中。您可以根据需要移动或删除它。
                 orderproductsTableAdapter1.InsertQuery(orderNumber, (int)dataGridView2.Rows[i].Cells[1].Value, (int)dataGridView2.Rows[i].Cells[3].Value, (DateTime)dataGridView2.Rows[i].Cells[7].Value);
             }
+            // TODO: 这行代码将数据更新到表“users”中。您可以根据需要移动或删除它。
             usersTableAdapter1.UpdateQuery(Convert.ToInt32(amount), 登录.tel);
             支付 pay = new 支付();
             pay.ShowDialog();
