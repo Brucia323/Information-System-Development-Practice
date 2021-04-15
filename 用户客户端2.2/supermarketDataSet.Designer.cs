@@ -5629,7 +5629,7 @@ SELECT ordernamber, b_state, payment, tel, usetel, adr, bookTime, payTime, prepa
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@payTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "payTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT COUNT(*) FROM book";
+            this._commandCollection[2].CommandText = "SELECT  COUNT(*) AS 数量\r\nFROM      book";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6402,7 +6402,7 @@ SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber 
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "UPDATE  cart\r\nSET           c_state = \'T\'\r\nWHERE   (tel = @Original_tel) AND (ite" +
-                "mnumber = @Original_itemnumber); \r\n";
+                "mnumber = @Original_itemnumber);  \r\n";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tel", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemnumber", global::System.Data.SqlDbType.Char, 10, global::System.Data.ParameterDirection.Input, 0, 0, "itemnumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6763,7 +6763,6 @@ SELECT tel, itemnumber, quantity, c_state, jointime FROM cart WHERE (itemnumber 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery1(string Original_tel, string Original_itemnumber) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((Original_tel == null)) {
@@ -7062,8 +7061,8 @@ SELECT DISTINCT itemnumber, name, cost, sell, stocknumber, sort_number, expirati
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parameter1", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "sort_number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT itemnumber, name, nowPrice, sort_number FROM commodity WHERE (name LIKE N\'" +
-                "%\' + @Parameter1 + N\'%\')";
+            this._commandCollection[1].CommandText = "SELECT DISTINCT itemnumber, name, nowPrice, sort_number\r\nFROM      commodity\r\nWHE" +
+                "RE   (name LIKE N\'%\' + @Parameter1 + N\'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parameter1", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -9507,8 +9506,8 @@ SELECT tel, username, sex, points, passwords, jointime FROM users WHERE (tel = @
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patameter1", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT  SUM(quantity * nowPrice) AS Expr1\r\nFROM      cart_1\r\nWHERE   (tel = @Pata" +
-                "meter1) AND (c_state = \'T\')";
+            this._commandCollection[2].CommandText = "SELECT  SUM(quantity * nowPrice) AS 应付金额\r\nFROM      cart_1\r\nWHERE   (tel = @Patam" +
+                "eter1) AND (c_state = \'T\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patameter1", global::System.Data.SqlDbType.Char, 11, global::System.Data.ParameterDirection.Input, 0, 0, "tel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
