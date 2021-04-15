@@ -107,5 +107,10 @@ namespace 用户客户端2._2
                 commodityTableAdapter.Fill(supermarketDataSet.commodity, comboBox1.SelectedValue.ToString());
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // TODO: 跳转到个人中心
+        }
     }
 }
